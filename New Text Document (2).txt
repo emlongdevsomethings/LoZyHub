@@ -1,0 +1,13 @@
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+function teleportToOrbsSpawns()
+	local orbSpawns = workspace.GameAssets.GlobalAssets.OrbSpawns:GetChildren()
+	for _, spawn in ipairs(orbSpawns) do
+		if spawn:IsA("BasePart") then
+			character:SetPrimaryPartCFrame(spawn.CFream)
+			wait(0.5)
+		end
+	end
+end
+teleportToOrbsSpawns()
